@@ -1,0 +1,15 @@
+.map {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+app-layer-switcher {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    /*background-color: white;*/
+    z-index: 5;
+}

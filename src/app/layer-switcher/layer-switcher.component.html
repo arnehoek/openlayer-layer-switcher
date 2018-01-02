@@ -1,0 +1,9 @@
+<form [formGroup]="formGroup">
+    <mat-form-field>
+        <mat-select placeholder="pick a background" formControlName="layer">
+            <mat-option *ngFor="let layer of layers" [value]="layer.layer">
+                {{ layer.title }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
