@@ -1,11 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {LayerSwitcherModule} from './layer-switcher/layer-switcher.module';
-import {MapService} from './map.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BestuurlijkeGrenzenModule} from './bestuurlijke-grenzen/bestuurlijke-grenzen.module';
+import {MapModule} from './map/map.module';
 
 
 @NgModule({
@@ -14,11 +13,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    MapModule.forRoot(),
     LayerSwitcherModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    MapService
+    BrowserAnimationsModule,
+    BestuurlijkeGrenzenModule
   ],
   bootstrap: [AppComponent]
 })

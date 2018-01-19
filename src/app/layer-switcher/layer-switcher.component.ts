@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MapService} from '../map.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {MapService} from '../map/map.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 export class LayerObject {
@@ -16,6 +16,8 @@ export class LayerSwitcherComponent implements OnInit {
   layers: LayerObject[];
   activeLayer: ol.layer.Layer;
   formGroup: FormGroup;
+
+  @Input() map: string = MapService.DEFAULT_MAP;
 
   constructor(private mapService: MapService, fb: FormBuilder) {
     this.formGroup = fb.group({
@@ -39,9 +41,9 @@ export class LayerSwitcherComponent implements OnInit {
 
   setLayer(layer: ol.layer.Layer) {
     if (this.activeLayer != null) {
-      this.mapService.map.removeLayer(this.activeLayer);
+      this.mapService.getMap(this.map).removeLayer(this.activeLayer);
     }
-    this.mapService.map.addLayer(layer);
+    this.mapService.getMap(this.map).addLayer(layer);
     this.activeLayer = layer;
   }
 
